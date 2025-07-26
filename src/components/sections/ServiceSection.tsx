@@ -103,10 +103,11 @@ export const ServiceSection: React.FC = () => {
                     index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                   }`}
                 >
-                  <div className="flex-1 md:pr-8">
+                  <div className="flex-1 md:pr-8 ml-20 md:ml-0">
                     <Card className={`${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                       <h4 className="text-lg font-semibold mb-2">
-                        {step.step}. {step.title}
+                        <span className="hidden md:inline">{step.step}. </span>
+                        {step.title}
                       </h4>
                       <p className="text-gray-600">{step.description}</p>
                     </Card>
