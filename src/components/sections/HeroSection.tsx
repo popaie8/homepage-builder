@@ -9,7 +9,7 @@ export const HeroSection: React.FC = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: 'linear-gradient(rgba(59, 130, 246, 0.1), rgba(255, 255, 255, 0.9)), url(/images/hero-workspace.jpg)',
+        backgroundImage: 'linear-gradient(rgba(59, 130, 246, 0.1), rgba(255, 255, 255, 0.9)), url(/images/hero-generated-bg.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -84,11 +84,11 @@ export const HeroSection: React.FC = () => {
           >
             <div className="relative">
               <img
-                src="/images/hero-mockup.jpg"
+                src="/images/hero-mockup-generated.jpg"
                 alt="ホームページ制作イメージ"
                 className="w-full h-auto rounded-lg shadow-2xl"
                 onError={(e) => {
-                  e.currentTarget.src = '/images/hero-workspace.jpg';
+                  e.currentTarget.src = '/images/hero-generated-bg.jpg';
                 }}
               />
               <div className="absolute -top-4 -right-4 bg-red-500 text-white px-4 py-2 rounded-lg font-bold shadow-lg transform rotate-3">
