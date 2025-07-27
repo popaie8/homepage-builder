@@ -97,14 +97,15 @@ export const ServiceSection: React.FC = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {processFlow.slice(0, 3).map((step, index) => {
-                  const IconComponent = {
+                  const iconMap = {
                     FaComments,
                     FaSitemap,
                     FaPaintBrush,
                     FaCode,
                     FaCheckCircle,
                     FaRocket
-                  }[step.icon as keyof typeof IconComponent] || FaRocket;
+                  };
+                  const IconComponent = iconMap[step.icon as keyof typeof iconMap] || FaRocket;
                   
                   return (
                     <motion.div
@@ -137,14 +138,15 @@ export const ServiceSection: React.FC = () => {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 {processFlow.slice(3, 6).map((step, index) => {
-                  const IconComponent = {
+                  const iconMap = {
                     FaComments,
                     FaSitemap,
                     FaPaintBrush,
                     FaCode,
                     FaCheckCircle,
                     FaRocket
-                  }[step.icon as keyof typeof IconComponent] || FaRocket;
+                  };
+                  const IconComponent = iconMap[step.icon as keyof typeof iconMap] || FaRocket;
                   
                   return (
                     <motion.div
