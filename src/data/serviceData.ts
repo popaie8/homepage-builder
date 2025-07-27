@@ -53,27 +53,44 @@ export const additionalOptions: AdditionalOption[] = [
 export const processFlow = [
   {
     step: 1,
-    title: "お申し込み",
-    description: "フォームまたはLINEからお申し込み"
+    title: "戦略的ヒアリング",
+    description: "ビジネス目標とターゲット層を明確化し、最適なサイト構成をご提案",
+    duration: "30分〜1時間",
+    icon: "FaComments"
   },
   {
     step: 2,
-    title: "素材のご提出",
-    description: "写真・テキスト・ロゴなどをご提供"
+    title: "コンテンツ設計",
+    description: "ブランドアイデンティティを活かした情報設計と導線の最適化",
+    duration: "2営業日",
+    icon: "FaSitemap"
   },
   {
     step: 3,
-    title: "初稿のご提出",
-    description: "5営業日以内に初稿をお見せします"
+    title: "デザイン制作",
+    description: "最新のUIトレンドと高いユーザビリティを両立したデザイン提案",
+    duration: "3営業日",
+    icon: "FaPaintBrush"
   },
   {
     step: 4,
-    title: "修正対応",
-    description: "2回まで無料で修正いたします"
+    title: "開発・実装",
+    description: "高速表示とSEO最適化を実現する最新技術での実装",
+    duration: "2営業日",
+    icon: "FaCode"
   },
   {
     step: 5,
-    title: "公開",
-    description: "最終確認後、本番環境へ公開"
+    title: "品質保証",
+    description: "マルチデバイス検証とパフォーマンステストで品質を担保",
+    duration: "1営業日",
+    icon: "FaCheckCircle"
+  },
+  {
+    step: 6,
+    title: "納品・運用開始",
+    description: "セキュアな本番環境への展開と運用マニュアルのご提供",
+    duration: "1営業日",
+    icon: "FaRocket"
   }
 ];

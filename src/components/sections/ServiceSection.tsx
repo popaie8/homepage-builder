@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCheck, FaRocket, FaHandshake, FaDollarSign } from 'react-icons/fa';
+import { FaCheck, FaRocket, FaHandshake, FaDollarSign, FaComments, FaSitemap, FaPaintBrush, FaCode, FaCheckCircle } from 'react-icons/fa';
 import { Card } from '../ui';
 import { mainPlan, processFlow } from '../../data/serviceData';
 
@@ -86,40 +86,94 @@ export const ServiceSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold text-center mb-8">制作の流れ</h3>
-          <div className="max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-center mb-4">制作の流れ</h3>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            戦略的なアプローチで、ビジネス成果に直結するWebサイトを構築
+          </p>
+          <div className="max-w-5xl mx-auto">
             <div className="relative">
               {/* プログレスライン */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-300 md:left-1/2 md:transform md:-translate-x-1/2" />
+              <div className="hidden md:block absolute left-0 right-0 top-24 h-1 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600" />
               
-              {processFlow.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className={`relative flex items-center mb-8 ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
-                >
-                  <div className="flex-1 md:pr-8 ml-20 md:ml-0">
-                    <Card className={`${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                      <h4 className="text-lg font-semibold mb-2">
-                        <span className="hidden md:inline">{step.step}. </span>
-                        {step.title}
-                      </h4>
-                      <p className="text-gray-600">{step.description}</p>
-                    </Card>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {processFlow.slice(0, 3).map((step, index) => {
+                  const IconComponent = {
+                    FaComments,
+                    FaSitemap,
+                    FaPaintBrush,
+                    FaCode,
+                    FaCheckCircle,
+                    FaRocket
+                  }[step.icon as keyof typeof IconComponent] || FaRocket;
                   
-                  <div className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl z-10">
-                    {step.step}
-                  </div>
+                  return (
+                    <motion.div
+                      key={step.step}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: index * 0.15 }}
+                      viewport={{ once: true }}
+                      className="relative"
+                    >
+                      {/* ステップ番号 */}
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                        <div className="w-12 h-12 bg-white border-4 border-blue-600 rounded-full flex items-center justify-center font-bold text-blue-600">
+                          {step.step}
+                        </div>
+                      </div>
+                      
+                      <Card className="pt-12 pb-6 px-6 h-full hover:shadow-lg transition-shadow duration-300">
+                        <IconComponent className="text-3xl text-blue-600 mx-auto mb-4" />
+                        <h4 className="text-lg font-bold mb-2">{step.title}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{step.description}</p>
+                        <div className="text-xs text-blue-600 font-medium">
+                          期間: {step.duration}
+                        </div>
+                      </Card>
+                    </motion.div>
+                  );
+                })}
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                {processFlow.slice(3, 6).map((step, index) => {
+                  const IconComponent = {
+                    FaComments,
+                    FaSitemap,
+                    FaPaintBrush,
+                    FaCode,
+                    FaCheckCircle,
+                    FaRocket
+                  }[step.icon as keyof typeof IconComponent] || FaRocket;
                   
-                  <div className="flex-1 hidden md:block" />
-                </motion.div>
-              ))}
+                  return (
+                    <motion.div
+                      key={step.step}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: (index + 3) * 0.15 }}
+                      viewport={{ once: true }}
+                      className="relative"
+                    >
+                      {/* ステップ番号 */}
+                      <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                        <div className="w-12 h-12 bg-white border-4 border-blue-600 rounded-full flex items-center justify-center font-bold text-blue-600">
+                          {step.step}
+                        </div>
+                      </div>
+                      
+                      <Card className="pt-12 pb-6 px-6 h-full hover:shadow-lg transition-shadow duration-300">
+                        <IconComponent className="text-3xl text-blue-600 mx-auto mb-4" />
+                        <h4 className="text-lg font-bold mb-2">{step.title}</h4>
+                        <p className="text-sm text-gray-600 mb-3">{step.description}</p>
+                        <div className="text-xs text-blue-600 font-medium">
+                          期間: {step.duration}
+                        </div>
+                      </Card>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </motion.div>
